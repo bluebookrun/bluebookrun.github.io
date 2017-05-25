@@ -1,0 +1,177 @@
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>http_assertion - Bluebook</title>
+
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>
+  <header class="bb-navbar navbar navbar-static-top " id="top">
+  <div class="container">
+    <div class="navbar-header">
+      <button aria-controls="bb-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#bb-navbar" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Bluebook</a>
+    </div>
+    <nav class="collapse navbar-collapse" id="bb-navbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/docs/getting-started">Getting Started</a></li>
+        <li><a href="/docs/">Documentation</a></li>
+        <li><a href="https://github.com/bluebookrun/bluebook">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+            <nav class="bb-docs-sidebar hidden-print hidden-sm hidden-xs">
+      <ul class="nav bb-docs-sidenav">
+        <li><a href="/docs/bcl">Bluebook Configuration Language (BCL)</a></li>
+        <li>
+          <ul class="nav bb-docs-sidenav-level2">
+              <li><a href="/docs/bcl#block-syntax">Block syntax</a></li>
+              <li><a href="/docs/bcl#expressions">Expressions</a></li>
+              <li><a href="/docs/bcl#types">Types</a></li>
+              <li><a href="/docs/bcl#comments">Comments</a></li>
+              <li><a href="/docs/bcl#interpolation-syntax">Interpolation syntax</a></li>
+          </ul>
+        </li>
+        <li><a href="/docs/cli">Bluebook Command Line Interface</a></li>
+        <li><a href="/docs/variables">Variables</a></li>
+        <li><a href="/docs/resources">Resources</a></li>
+        <li>
+          <ul class="nav bb-docs-sidenav-level2">
+            <li><a href="/docs/resources/http_assertion">http_assertion</a>
+            <li><a href="/docs/resources/http_variable">http_variable</a>
+            <li><a href="/docs/resources/http_step">http_step</a>
+            <li><a href="/docs/resources/http_test">http_test</a>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+
+      </div>
+      <div class="col-md-9">
+        <div class="bb-docs-header">
+          <h1>http_assertion</h1>
+          <p>Validate HTTP responses.</p>
+        </div>
+        <div class="bb-docs-section" id="variables">
+      <p>HTTP assertions can be used to validate HTTP responses.</p>
+
+      <h3>Example</h3>
+
+      <pre>resource "http_assertion" "my_assertion" {
+  source = "status_code"
+  comparison = "equals"
+  target = "200"
+}</pre>
+
+      <h3>Inputs</h3>
+
+      <ul>
+        <li><code>source</code> &ndash; location of the response value.</li>
+        <li><code>comparison</code> &ndash; comparison operation to perform on the source value.</li>
+        <li><code>target</code> &ndash; expected source value.</li>
+        <li><code>property</code> &ndash; property name of the source (<code>json_body</code> and <code>header</code> sources only).</li>
+      </ul>
+
+      <h4>Sources</h4>
+
+      <ul>
+        <li><code>status_code</code> &mdash; response status code.</li>
+        <li><code>header</code> &mdash; response header.</li>
+        <li><code>body</code> &mdash; response body.</li>
+        <li><code>json_body</code> &mdash; JSON response body.</li>
+      </ul>
+
+      <h4>Comparisons</h4>
+      <ul>
+        <li><code>less_than</code> &mdash; source value is less than target value.</li>
+        <li><code>less_than_or_equal</code> &mdash; source value is less than target value, or equals target value.</li>
+        <li><code>greater_than</code> &msash; source value is greater than target value.</li>
+        <li><code>greater_than_or_equal</code> &mdash; source value is greater than target value, or equals target value.</li>
+        <li><code>is_empty</code> &mdash; source value is empty or null.</li>
+        <li><code>is_not_empty</code> &mdash; source value is not empty.</li>
+        <li><code>equals</code> &mdash; source value equals target value (string comparison).</li>
+        <li><code>does_not_equal</code> &mdash; source value does not equal target value (string comparison).</li>
+        <li><code>contains</code> &mdash; source value contains target value (string comparison).</li>
+        <li><code>does_not_contain</code> &mdash; source value does not contain target value (string comparison).</li>
+        
+        <li><code>has_key</code> &mdash; test whether JSON dictionary located at property contains key specified in target. (<code>json_body</code> only.</li>
+        <li><code>has_value</code> &mdash; JSON array located at property contains item specified in target.</li>
+        <li><code>equals_number</code> &mdash; source value equals target value (<code>json_body</code> only; numeric comparison, <code>1 == 1.00</code>).</li>
+        <li><code>is_null</code> &mdash; JSON property is null (<code>json_body</code> only).</li>
+        <li><code>is_a_number</code> &mdash; JSON property is a number (<code>json_body</code> only).</li>
+      </ul>
+
+      <h4>Properties</h4>
+      <p>Property is an additional piece of information that some value sources require. Property is optional for <code>body</code> and <code>status_code</code> sources.</p>.
+
+      <p><code>header</code> source uses property to find HTTP header for comparison:</p>
+
+      <pre>source = "header"
+target = "Content-Type"</pre>
+
+      <p><code>json_body</code> source uses property to find attribute within JSON object:</p>
+
+      <pre>source = "json_body"
+target = "data.key[0]"</pre>
+
+      <h3>Outputs</h3>
+      <ul>
+        <li><code>id</code> - resource ID.</li>
+      </ul>
+
+    </div>
+      </div>
+    </div>
+  </div>
+
+    <footer class="footer">
+    <div class="container">
+      <p class="text-muted">&copy; 2017 Tadas Vilkeliskis</p>
+    </div>
+  </footer>
+
+  <script>
+  if (window.location.hostname == 'bluebook.run') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99924700-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Variables - Bluebook</title>
+<title>Bluebook</title>
 
 
 
@@ -25,7 +25,7 @@
 
 </head>
 <body>
-  <header class="bb-navbar navbar navbar-static-top " id="top">
+  <header class="bb-navbar navbar navbar-static-top bb-navbar-landing" id="top">
   <div class="container">
     <div class="navbar-header">
       <button aria-controls="bb-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#bb-navbar" data-toggle="collapse" type="button">
@@ -78,72 +78,46 @@
   </div>
 </header>
 
-
   <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="hidden-sm hidden-xs">
-              <nav class="bb-docs-sidebar hidden-print">
-      <ul class="nav bb-docs-sidenav">
-        <li><a href="/docs/bcl">Bluebook Configuration Language (BCL)</a></li>
-        <li>
-          <ul class="nav bb-docs-sidenav-level2">
-              <li><a href="/docs/bcl#block-syntax">Block syntax</a></li>
-              <li><a href="/docs/bcl#expressions">Expressions</a></li>
-              <li><a href="/docs/bcl#types">Types</a></li>
-              <li><a href="/docs/bcl#comments">Comments</a></li>
-              <li><a href="/docs/bcl#interpolation-syntax">Interpolation syntax</a></li>
-          </ul>
-        </li>
-        <li><a href="/docs/cli">Bluebook Command Line Interface</a></li>
-        <li><a href="/docs/variables">Variables</a></li>
-        <li><a href="/docs/resources">Resources</a></li>
-        <li>
-          <ul class="nav bb-docs-sidenav-level2">
-            <li><a href="/docs/resources/http_assertion">http_assertion</a>
-            <li><a href="/docs/resources/http_variable">http_variable</a>
-            <li><a href="/docs/resources/http_step">http_step</a>
-            <li><a href="/docs/resources/http_test">http_test</a>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+    <div class="jumbotron">
+  <h1 class="display-3">Bluebook NG</h1>
+  <p class="lead">Automated API Testing, Monitoring and Alerting</p>
+  <hr class="my-4">
+  <p>Bluebook lets you write modular and composable API tests, that can be easily shared, deployed, and monitored to keep your systems healthy.</p>
+  <p class="lead">
+    <center>
+        <a class="btn btn-lg btn-success" href="http://eepurl.com/cQNM_b" role="button">Join the waitlist</a>
+    </center>
+  </p>
+</div>
 
-
-        </div>
-      </div>
-      <div class="col-md-9">
-        <div class="bb-docs-header">
-          <h1>Variables</h1>
-          <p>Define global variables, reuse them across test cases.</p>
-        </div>
-        <div class="bb-docs-section" id="variables">
-      <p>Variable blocks can be used to specify required inputs for your tests.</p>
-      <p>Use variable block to define a variable:</p>
-
-      <pre>variable "my_variable" { }</pre>
-
-      <p>Variables can also have default values associated with them:</p>
-
-      <pre>variable "my_variable" {
-  default = "some_value"
-}</pre>
-
-      <p>Default values can be overridden with shell environment when running
-      Bluebook CLI. Prefix variable name with <code>BVAR_</code> to override
-      default value.</p>
-
-      <pre>$ BVAR_my_variable=other_value bluebook run</pre>
-
-      <p>Variables can be accessed using interpolation syntax in BCL files:</p>
-
-      <pre>"${var.my_variable}"</pre>
-
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3>Reliably Test and Monitor Your Web Services</h3>
+        <p class="lead">Bluebook NG provides you with powerful tools to monitor your services and APIs.
+        Catch issues early and be confident that your APIs are healthy.</p>
     </div>
-      </div>
+    <div class="col-md-8 col-md-offset-2">
+        <h3>Integrate With the Tools You Use Everyday</h3>
+        <p class="lead">Bluebook NG integrates with the tools you're already using and lets
+        you do things like execute your web app tests when you push code to
+        GitHub, or send alerts to Slack if failures happen.</p>
     </div>
+
+    <div class="col-md-4 col-md-offset-2">
+        <h3>Single Configuration, Multiple Environments</h3>
+        <p class="lead">Write your tests once and run against any environment,
+        such as <em>production</em> or <em>staging</em>.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Simple and Fast Management</h3>
+        <p class="lead">Tight integration with <a href="/docs/cli">Bluebook
+        CLI</a> means fast test case management, configuration, and
+        deployment.</p>
+    </div>
+</div>
   </div>
-
     <footer class="footer">
     <div class="container">
       <p class="text-muted">&copy; 2017 Tadas Vilkeliskis</p>
